@@ -1,6 +1,10 @@
 class Api::ProductsController < ApplicationController
   def index
     @products = Product.all
+
+    if params[:search]
+      @products = Product.where("name ILIKE ?", "%#{params[:search]}%")
+    end
     render "index.json.jb"
   end
 

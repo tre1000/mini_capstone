@@ -15,5 +15,5 @@ class Product < ApplicationRecord
 
   def total
     total = price + (price * 0.09)
-  # end
+  end
 end

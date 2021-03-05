@@ -5,9 +5,10 @@
   image_url: product.image_url,
   description: product.description,
   stock: product.stock,
-is_discounted?: product.is_discounted?,
-tax: product.tax,
-total: product.total,
+  is_discounted?: product.is_discounted?,
+  tax: product.tax,
+  total: product.total,
+  supplier_id: product.supplier_id,
 }
 
 #move is_discounted?, tax, and total out of partial. Get it to render in show and index.
