@@ -2,13 +2,15 @@
   id: product.id,
   name: product.name,
   price: product.price,
-  image_url: product.image_url,
+  #image_url: product.image_url,
   description: product.description,
   stock: product.stock,
   is_discounted?: product.is_discounted?,
   tax: product.tax,
   total: product.total,
-  supplier_id: product.supplier_id,
+  #supplier_id: product.supplier_id,
+  supplier: product.supplier.name,
+  images: product.images,
 }
 
 #move is_discounted?, tax, and total out of partial. Get it to render in show and index.
