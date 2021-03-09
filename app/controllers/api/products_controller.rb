@@ -1,12 +1,17 @@
 class Api::ProductsController < ApplicationController
   def index
-    @products = Product.all
+    #ensures that user must be logged in to access data
+    if current_user
+      @products = Product.all
+      render "index.json.jb"
+    else
+      render json: []
+    end
 
+    #enables ability to search through index via query
     if params[:search]
       @products = Product.where("name ILIKE ?", "%#{params[:search]}%")
     end
-
-    render "index.json.jb"
   end
 
   def show
