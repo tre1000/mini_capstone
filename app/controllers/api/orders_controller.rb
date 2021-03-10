@@ -3,7 +3,7 @@ class Api::OrdersController < ApplicationController
     if current_user
       @order = Order.new(
         quantity: params[:quantity],
-        product_id: params[:id],
+        product_id: params[:product_id],
         user_id: current_user.id,
       )
       @order.save
@@ -11,5 +11,10 @@ class Api::OrdersController < ApplicationController
     else
       render json: { error: "You must be logged in to do that." }
     end
+  end
+
+  def index
+    @orders = current_user.orders
+    render "index.json.jb"
   end
 end
