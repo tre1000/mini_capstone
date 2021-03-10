@@ -1,13 +1,9 @@
 class Api::ProductsController < ApplicationController
-  def index
-    #ensures that user must be logged in to access data
-    if current_user
-      @products = Product.all
-      render "index.json.jb"
-    else
-      render json: []
-    end
+  before_action :authenticate_admin, except: [:index, :show]
 
+  def index
+    @products = Product.all
+    render "index.json.jb"
     #enables ability to search through index via query
     if params[:search]
       @products = Product.where("name ILIKE ?", "%#{params[:search]}%")
@@ -27,6 +23,7 @@ class Api::ProductsController < ApplicationController
       #image_url: params[:image_url],
       description: params[:description],
       stock: params[:stock],
+      supplier_id: params[:supplier_id],
     )
     #happy/sad path
     if @product.save
