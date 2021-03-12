@@ -8,6 +8,7 @@
   #supplier_id: product.supplier_id,
   supplier: product.supplier.name,
   images: product.images,
+  categories: product.categories,
 }
 
 #move is_discounted?, tax, and total out of partial. Get it to render in show and index.
