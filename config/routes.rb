@@ -9,20 +9,20 @@ Rails.application.routes.draw do
     get "/products/:id" => "products#show"
     post "/products" => "products#create"
     patch "/products/:id" => "products#update"
-    delete "products/:id" => "products#delete"
+    delete "/products/:id" => "products#delete"
     #-----------------------------------------
     #Authentication paths
     post "/users" => "users#create"
-    post "sessions/" => "sessions#create"
+    post "/sessions" => "sessions#create"
     #-----------------------------------------
     #Order paths
-    post "orders" => "orders#create"
-    get "orders" => "orders#index"
-    get "orders/:id" => "orders#show"
+    post "/orders" => "orders#create"
+    get "/orders" => "orders#index"
+    get "/orders/:id" => "orders#show"
     #-----------------------------------------
     #CART PATHS
-    post "cart" => "carted_products#create"
-    get "cart" => "carted_products#index"
+    post "/cart" => "carted_products#create"
+    get "/cart" => "carted_products#index"
     #-----------------------------------------
   end
 end
